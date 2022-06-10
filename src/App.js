@@ -14,9 +14,15 @@ function App() {
 const [value, setValue] = useState(0);
 const[hovervalue, setHoverValue] = useState(undefined);
 
-
-
-
+const handleClick = event => {
+  setValue(event);
+}
+  const handleMouseOver = (newHoverValue) => {
+    setHoverValue(newHoverValue);
+  };
+const handleMouseLeave = () => {
+  setHoverValue(undefined);
+};
 
 
   return (
@@ -26,10 +32,19 @@ const[hovervalue, setHoverValue] = useState(undefined);
       <div style={styles.stars}>
 {stars.map ((_, index) => {
 return (
-  <FaStar 
-  key={index}
+  <FaStar
+    key={index}
+    onClick={() => handleClick(index + 1)}
+    onMouseOver={() => handleMouseOver(index + 1)}
+    onMouseLeave={handleMouseLeave}
+    color={(hovervalue || value) > index ? colors.orange : colors.grey}
+    style={{
+      marginRight: 10,
+      cursor: "pointer",
+    }}
+    size={30}
   />
-)
+);
 
 })}
       </div>
