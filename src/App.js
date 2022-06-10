@@ -7,12 +7,18 @@ const colors = {
   grey: "#a9a9a9",
 };
 
-const stars = Array(5).fill(0);
-
-
 
 
 function App() {
+ const stars = Array(5).fill(0);
+const [value, setValue] = useState(0);
+const[hovervalue, setHoverValue] = useState(undefined);
+
+
+
+
+
+
   return (
     <div className="App">
       <h1> Zahra </h1>
