@@ -27,27 +27,34 @@ const handleMouseLeave = () => {
 
   return (
     <div className="App">
-      <h1> Zahra </h1>
-     <div style={styles.container}>
-      <div style={styles.stars}>
-{stars.map ((_, index) => {
-return (
-  <FaStar
-    key={index}
-    onClick={() => handleClick(index + 1)}
-    onMouseOver={() => handleMouseOver(index + 1)}
-    onMouseLeave={handleMouseLeave}
-    color={(hovervalue || value) > index ? colors.orange : colors.grey}
-    style={{
-      marginRight: 10,
-      cursor: "pointer",
-    }}
-    size={30}
-  />
-);
+      <h1> Zahra Rating</h1>
+      <div style={styles.container}>
+        <div style={styles.stars}>
+          {stars.map((_, index) => {
+            return (
+              <FaStar
+                key={index}
+                onClick={() => handleClick(index + 1)}
+                onMouseOver={() => handleMouseOver(index + 1)}
+                onMouseLeave={handleMouseLeave}
+                color={
+                  (hovervalue || value) > index ? colors.orange : colors.grey
+                }
+                style={{
+                  marginRight: 10,
+                  cursor: "pointer",
+                }}
+                size={30}
+              />
+            );
+          })}
+        </div>
+        <textarea
+          placeholder="What's your experience?"
+          style={styles.textarea}
+        />
 
-})}
-      </div>
+        <button style={styles.button}>Submit</button>
       </div>
     </div>
   );
